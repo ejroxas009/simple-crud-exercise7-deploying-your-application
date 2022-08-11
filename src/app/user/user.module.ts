@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FormComponent } from './components/form/form.component';
+import { UserRoutingModule } from './user-routing.module';
 
 
 
@@ -11,7 +12,9 @@ import { FormComponent } from './components/form/form.component';
     FormComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    UserRoutingModule
+  ],
+  exports: [ProfileComponent]
 })
 export class UserModule { }

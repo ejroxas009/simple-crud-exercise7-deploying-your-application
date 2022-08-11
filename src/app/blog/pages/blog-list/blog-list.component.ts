@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Blog } from '../../models/blog';
+import { BlogService } from '../../services/service.service';
 
 
 @Component({
@@ -9,31 +10,19 @@ import { Blog } from '../../models/blog';
 })
 export class BlogListComponent implements OnInit {
 
-  public blogs : Blog[] = [{
-    id: 1,
-    title: "Rich Dad Poor Dad",
-    author: "Robert Kiyosaki"
+  blogs: Blog[] =[]
 
-  },
-  
-  {
-  id: 2,
-  title: "The Subtle Art of Not Giving a F*ck",
-  author: "Mark Manson"
-
-  },
-
-  {
-    id: 3,
-    title: "Outliers",
-    author: "Malcolm Gladwell"
-  }
-  
-
-]
-  constructor() { }
+  constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
+    this.blogs = this.blogService.getBlogs()
   }
 
+  edit(blog: Blog){
+    console.log(blog.id)
+  }
+  delete(blog: Blog){
+    console.log(blog.id)
+  }
+ 
 }

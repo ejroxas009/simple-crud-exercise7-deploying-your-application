@@ -1,1 +1,11 @@
-<p>blog-item works!</p>
+<div class = "card">
+    <h1 class = "title"> {{blog?.name}}</h1>
+    <div class = "authors">Author: {{blog?.authors}}</div>
+    <div class ="isbn">ISBN: {{blog?.isbn}}</div>
+    <div class = "btn-container">
+      <button class ="btn" (click) = "edit()">Edit</button>
+      <button class = "btn" (click) = "delete()">Delete</button>
+  </div>
+  
+  </div>
+  
