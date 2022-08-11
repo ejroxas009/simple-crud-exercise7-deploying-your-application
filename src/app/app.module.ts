@@ -7,6 +7,7 @@ import { BlogService } from './blog/services/service.service';
 import { BookService } from './book/services/book.service';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { CommandBarComponent } from './shared/components/command-bar/command-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CommandBarComponent } from './shared/components/command-bar/command-bar
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
    
     
   ],
