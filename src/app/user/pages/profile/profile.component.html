@@ -1,29 +1,29 @@
 
-<div class = "formContainer">
+<div class = "formContainer" >
     <h1>Profile Form</h1>
-    <form action="">
+    <form [formGroup] = "profileForm" (ngSubmit) = "submit()">
         <div class = "inputContainer">
             <label >Email:</label><br>
-            <input type="text">
+            <input type="text" formControlName = "email">
     
         </div>
         <div class = "inputContainer">
             <label for="">Name:</label><br>
-            <input type="text">
+            <input type="text" formControlName = "name">
     
         </div>
         <div class = "inputContainer">
             <label for="">Bio:</label><br>
-            <input type="text">
+            <input type="text" formControlName = "bio">
     
         </div>
         <div class = "inputContainer">
             <label for="">Active:</label><br>
-            <input type="text">
+            <input type="text" formControlName = "activate">
     
         </div>
         
-    
+         <button type ="submit">Submit</button>
     </form>
     
 

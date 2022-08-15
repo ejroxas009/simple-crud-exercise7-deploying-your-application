@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color: #3b5998;
+    
+    
+}
+
+.nav-bar ul{
+    display:flex;
+    margin: 0;
+    padding:0;
+    list-style: none;
+}
+.nav-bar a{
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.nav-bar a:hover{
+    color: gray;
+}
+.nav-bar{
+   margin: 10vw; 
+}
+
+.logo{
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    
+
+}

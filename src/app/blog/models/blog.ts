@@ -1,6 +1,7 @@
 export interface Blog {
-    id: number,
-    name: string,
-    authors: string[],
-    isbn: string
+    id:number,
+    title: string,
+    description: string,
+    author: string,
+    comments: string[]
 }

@@ -1,0 +1,53 @@
+.card{
+    border-style: none;
+    margin: 10px;
+    width: 50vw;
+    
+    
+}
+
+.title{
+    background-color: #3b5998;
+    color: white;
+    padding: 2px;
+   
+}
+
+.description, .author{
+    
+    padding: 2px;
+}
+
+
+.comments{
+    
+   
+    margin: 2px;
+    
+}
+
+.comment-container{
+    border-style: solid;
+    border-color: gray;
+    margin: 10px;
+    border-left: none;
+    border-right: none;
+}
+
+
+.btn{
+    background-color:#3b5998;
+    border-style: none;
+    border-radius: 10%;
+    color: white;
+    font-size: 1.2rem;
+    margin: 8px;
+    padding: 5px;
+    cursor: pointer;
+    
+}
+
+.btn-container{
+    display: flex;
+    justify-content: flex-end;
+}

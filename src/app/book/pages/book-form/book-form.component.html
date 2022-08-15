@@ -1,0 +1,19 @@
+<form [formGroup] = "bookForm" (ngSubmit)="submit()">
+    <div>
+        <label for="name">Name:</label>
+        <input formControlName = "name" type="text">
+    </div> 
+    
+    <div>
+        <label for="isbn">ISBN: </label>
+        <input formControlName = "isbn" type="text">
+    </div>
+    <div formArrayName = "authors">
+        <label for="authors">Authors:</label>
+        <div *ngFor = "let _ of authorsArray.controls; index as i">
+            <input [formControlName] = "i">
+        </div>
+    </div>
+    <button (click) = "addFormControl()" type = "button">Add</button>
+    <button type = "submit">Submit</button>
+</form>

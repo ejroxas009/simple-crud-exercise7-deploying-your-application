@@ -1,10 +1,10 @@
 
 <div class = "card">
-  <h1 class = "title"> {{book?.name}}</h1>
-  <div class = "authors">Author: {{book?.authors}}</div>
-  <div class ="isbn">ISBN: {{book?.isbn}}</div>
-  <div class = "btn-container">
-    <button class ="btn" (click) = "edit()">Edit</button>
+  <h1 class = "title items"> {{book?.name}}</h1>
+  <div class = "authors items">Author: {{book?.authors}}</div>
+  <div class ="isbn items">ISBN: {{book?.isbn}}</div>
+  <div class = "btn-container items">
+    <button class ="btn" (click) = "edit()" routerLink = "/book/form">Edit</button>
     <button class = "btn" (click) = "delete()">Delete</button>
 </div>
 
