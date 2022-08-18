@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, tap } from 'rxjs';
 import { Blog } from '../models/blog';
 
 @Injectable({
@@ -38,21 +40,39 @@ export class BlogService {
     },
   ];
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
-  getBlogs(){
-     return this.blogs
-
+  getBlogs() : Observable<Blog[]>{
+    return this.http.get<Blog[]>("http://localhost:3000/blogs").pipe(tap())
   }
 
   addBlogs(blog : Blog){
-    blog.id = this.id
-    this.id++
-    this.blogs.push(blog)
+    return this.http.post("http://localhost:3000/blogs", blog)
   }
+
+  delete(blog : Blog){
+    return this.http.delete(`http://localhost:3000/blogs/${blog.id}`)
+  }
+
+  editBook(blog : Blog){
+    return this.http.put(`http://localhost:3000/blogs/${blog.id}`, blog)
+  }
+
+
+// --------------------------------------------------------------------------------------
+  // getBlogs(){
+  //    return this.blogs
+
+  // }
+
+  // addBlogs(blog : Blog){
+  //   blog.id = this.id
+  //   this.id++
+  //   this.blogs.push(blog)
+  // }
   
-  editBlogForm(id : number){
-    this.editedBlog = this.blogs.filter((blog:Blog) =>{
+  editBlogForm(id : number, blogs : Blog[]){
+    this.editedBlog = blogs.filter((blog:Blog) =>{
       if(blog.id === id){
         return blog
       }
@@ -60,29 +80,29 @@ export class BlogService {
     return this.editedBlog
 }
 
-editBook(newBlog : Blog){
-  this.blogs.map(blog =>{
-   if(blog.id == newBlog.id){
-     blog.title = newBlog.title;
-     blog.description = newBlog.description;
-     blog.author = newBlog.author;
-     blog.comments = newBlog.comments;
+// editBook(newBlog : Blog){
+//   this.blogs.map(blog =>{
+//    if(blog.id == newBlog.id){
+//      blog.title = newBlog.title;
+//      blog.description = newBlog.description;
+//      blog.author = newBlog.author;
+//      blog.comments = newBlog.comments;
      
-   }
- })
+//    }
+//  })
 
-}
+// }
 
 deleteAll(){
   return this.blogs = []
 }
 
-delete(id : number){
-  this.blogs = this.blogs.filter(blog =>{
-    if(blog.id !== id){
-      return blog
-    }
-  })
-  return this.blogs
-}
+// delete(id : number){
+//   this.blogs = this.blogs.filter(blog =>{
+//     if(blog.id !== id){
+//       return blog
+//     }
+//   })
+//   return this.blogs
+// }
 }

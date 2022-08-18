@@ -1,5 +1,7 @@
+<app-header (logoutActionEmitter) = "logout()"></app-header>
 <h1>Blog list</h1>
 <hr>
+
 <app-command-bar (addActionEmitter) = "add()" (deleteAllActionEmitter) = "deleteAll()"  [variableLink] = "blogFormLink"></app-command-bar>
 <div *ngFor = "let blog of blogs">
     <app-blog-item [blog] = "blog" (editActionEmitter) = "edit($event)" (deleteActionEmitter) = "delete($event)"></app-blog-item>

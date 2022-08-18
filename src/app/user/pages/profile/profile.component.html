@@ -1,4 +1,6 @@
 
+<app-header (logoutActionEmitter) = "logout()"></app-header>
+
 <div class = "formContainer" >
     <h1>Profile Form</h1>
     <form [formGroup] = "profileForm" (ngSubmit) = "submit()">

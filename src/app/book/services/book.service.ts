@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable, tap } from 'rxjs';
 import { Book } from '../models/book';
 
 @Injectable({
@@ -18,22 +20,39 @@ export class BookService {
     ];
 
     editedForm : FormGroup | undefined
-    constructor(private fb : FormBuilder) { }
+    constructor(private fb : FormBuilder, private http : HttpClient) { }
 
-    getBooks(){
-      return this.books
-
+    getBooks(): Observable<Book[]>{
+      return this.http.get<Book[]>("http://localhost:3000/books")
     }
 
-    addBooks(book:Book){
-      book.id = this.id
-      this.id++
-      this.books.push(book)
+    addBooks(book : Book){
+      return this.http.post("http://localhost:3000/books", book)
+    }
+
+    editBook(book : Book){
+      return this.http.put(`http://localhost:3000/books/${book.id}`, book)
+    }
+
+    delete(book : Book){
+      return this.http.delete(`http://localhost:3000/books/${book.id}`)
+    }
+//-----------------------------------------------------------------------------------------------------
     
-    }
+    // getBooks(){
+    //   return this.books
 
-    editBookForm(id:number){
-      this.editedBook = this.books.filter((book:Book) =>{
+    // }
+
+    // addBooks(book:Book){
+    //   book.id = this.id
+    //   this.id++
+    //   this.books.push(book)
+    
+    // }
+
+    editBookForm(id:number, books : Book[]){
+      this.editedBook = books.filter((book:Book) =>{
         if(book.id === id){
           return book
         }
@@ -41,33 +60,33 @@ export class BookService {
       return this.editedBook
   }
 
-  editBook(newBook : Book){
-     this.books.map(book =>{
-      if(book.id == newBook.id){
-        book.name = newBook.name;
-        book.authors = newBook.authors;
-        book.isbn = newBook.isbn;
-        console.log("from services" + book.id)
-        console.log("newBook Id " + newBook.id)
-        console.log(this.books)
-      }
-    })
-    console.log("newBook " + newBook.id)
+  // editBook(newBook : Book){
+  //    this.books.map(book =>{
+  //     if(book.id == newBook.id){
+  //       book.name = newBook.name;
+  //       book.authors = newBook.authors;
+  //       book.isbn = newBook.isbn;
+  //       console.log("from services" + book.id)
+  //       console.log("newBook Id " + newBook.id)
+  //       console.log(this.books)
+  //     }
+  //   })
+  //   console.log("newBook " + newBook.id)
   
-  }
+  //}
   deleteAll(){
     return this.books = []
   }
 
-  delete(id: number){
-    console.log("service "+id)
-    this.books = this.books.filter(book =>{
-      if(book.id !== id){
-        return book
-      }
-    })
-    return this.books
-  }
+  // delete(id: number){
+  //   console.log("service "+id)
+  //   this.books = this.books.filter(book =>{
+  //     if(book.id !== id){
+  //       return book
+  //     }
+  //   })
+  //   return this.books
+  // }
 
 }
 

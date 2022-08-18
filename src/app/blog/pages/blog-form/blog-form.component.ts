@@ -67,9 +67,9 @@ export class BlogFormComponent implements OnInit {
     
 
     if(this.blogService.addFlag && !this.blogService.editFlag){
-      this.blogService.addBlogs(blog)
+      this.blogService.addBlogs(blog).subscribe()
     }else if(!this.blogService.addFlag && this.blogService.editFlag){
-      this.blogService.editBook(blog)
+      this.blogService.editBook(blog).subscribe()
     }
 
     this.blogForm.reset()

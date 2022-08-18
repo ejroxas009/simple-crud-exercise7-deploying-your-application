@@ -65,9 +65,9 @@ export class BookFormComponent implements OnInit {
     console.log(book)
     
     if(this.bookService.addFlag && !this.bookService.editFlag){
-      this.bookService.addBooks(book)
+      this.bookService.addBooks(book).subscribe()
     }else if(!this.bookService.addFlag && this.bookService.editFlag){
-      this.bookService.editBook(book)
+      this.bookService.editBook(book).subscribe()
     }
     this.bookForm.reset()
     this.router.navigate(["/book"])

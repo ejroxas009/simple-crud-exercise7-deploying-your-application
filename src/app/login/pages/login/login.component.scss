@@ -1,0 +1,38 @@
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    position: absolute;
+    border-style: solid;
+    top: 30%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+div{
+    margin : 10px;
+    padding: 10px
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.button{
+    
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+p{
+    justify-content: center;
+    align-items: center;
+}
+
