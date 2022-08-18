@@ -23,19 +23,19 @@ export class BookService {
     constructor(private fb : FormBuilder, private http : HttpClient) { }
 
     getBooks(): Observable<Book[]>{
-      return this.http.get<Book[]>("http://localhost:3000/books")
+      return this.http.get<Book[]>("https://json-server-seven-mock.herokuapp.com/books")
     }
 
     addBooks(book : Book){
-      return this.http.post("http://localhost:3000/books", book)
+      return this.http.post("https://json-server-seven-mock.herokuapp.com/books", book)
     }
 
     editBook(book : Book){
-      return this.http.put(`http://localhost:3000/books/${book.id}`, book)
+      return this.http.put(`https://json-server-seven-mock.herokuapp.com/books/${book.id}`, book)
     }
 
     delete(book : Book){
-      return this.http.delete(`http://localhost:3000/books/${book.id}`)
+      return this.http.delete(`https://json-server-seven-mock.herokuapp.com/books/${book.id}`)
     }
 //-----------------------------------------------------------------------------------------------------
     

@@ -43,19 +43,19 @@ export class BlogService {
   constructor(private http : HttpClient) { }
 
   getBlogs() : Observable<Blog[]>{
-    return this.http.get<Blog[]>("http://localhost:3000/blogs").pipe(tap())
+    return this.http.get<Blog[]>("https://json-server-seven-mock.herokuapp.com/blogs").pipe(tap())
   }
 
   addBlogs(blog : Blog){
-    return this.http.post("http://localhost:3000/blogs", blog)
+    return this.http.post("https://json-server-seven-mock.herokuapp.com/blogs", blog)
   }
 
   delete(blog : Blog){
-    return this.http.delete(`http://localhost:3000/blogs/${blog.id}`)
+    return this.http.delete(`https://json-server-seven-mock.herokuapp.com/blogs/${blog.id}`)
   }
 
   editBook(blog : Blog){
-    return this.http.put(`http://localhost:3000/blogs/${blog.id}`, blog)
+    return this.http.put(`https://json-server-seven-mock.herokuapp.com/blogs/${blog.id}`, blog)
   }
 
 
